@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عين الابتكار التقني - حلول تقنية مبتكرة</title>
+    <style>
+        /* أساسيات التصميم */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --border-radius: 5px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tahoma', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* رأس الصفحة */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* قسم البطل */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        /* الأقسام العامة */
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        /* قسم الخدمات */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* قسم من نحن */
+        .about {
+            background-color: #f5f5f5;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-placeholder {
+            flex: 1;
+            height: 300px;
+            background-color: #e0e0e0;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-style: italic;
+        }
+        
+        /* قسم الاتصال */
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* تذييل الصفحة */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            right: 0;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary-color);
+            padding-right: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                left: 15px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-placeholder {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- رأس الصفحة -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">عين <span>الابتكار التقني</span></a>
+                <button class="mobile-menu-btn">☰</button>
+                <nav>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>عين الابتكار التقني</h1>
+            <p>نقدم حلولاً تقنية مبتكرة تلبي احتياجات العصر الرقمي وتساعد مؤسساتك على النمو والازدهار في عالم التكنولوجيا المتطور.</p>
+            <a href="#services" class="btn">اكتشف خدماتنا</a>
+        </div>
+    </section>
+
+    <!-- قسم الخدمات -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>تطوير البرمجيات</h3>
+                    <p>نصمم ونطور حلول برمجية مخصصة تلبي احتياجات عملك بدقة وكفاءة عالية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>تصميم المواقع</h3>
+                    <p>نخلق مواقع ويب جذابة وسهلة الاستخدام تعزز وجودك الرقمي وتحقق أهدافك.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>تطبيقات الجوال</h3>
+                    <p>نطور تطبيقات جوال مبتكرة تعمل على مختلف المنصات وتلبي توقعات المستخدمين.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>الأمن السيبراني</h3>
+                    <p>نوفر حلول أمنية متكاملة لحماية بياناتك وأنظمتك من التهديدات الإلكترونية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">☁</div>
+                    <h3>الحلول السحابية</h3>
+                    <p>نقدم خدمات سحابية متكاملة تساعدك على تحسين كفاءة عملك وخفض التكاليف.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>تحليل البيانات</h3>
+                    <p>نستخدم تقنيات متقدمة لتحليل البيانات واستخراج رؤى قيمة تساعد في اتخاذ القرارات.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>من نحن</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>عين الابتكار التقني هي مؤسسة رائدة في مجال الحلول التقنية والرقمية، تأسست برؤية واضحة لتمكين المؤسسات والأفراد من خلال تكنولوجيا متطورة تلبي متطلبات العصر الرقمي.</p>
+                    <p>نحن فريق من الخبراء والمتخصصين في مختلف المجالات التقنية، نعمل معاً لتقديم حلول مبتكرة تساعد عملائنا على تحقيق أهدافهم والنمو في سوق يتسم بالمنافسة الشديدة.</p>
+                    <p>نسعى دائماً لمواكبة أحدث التطورات التكنولوجية وتطبيق أفضل الممارسات في مجالنا لضمان تقديم خدمات عالية الجودة تلبي توقعات عملائنا.</p>
+                    <a href="#contact" class="btn">تواصل معنا</a>
+                </div>
+                <div class="about-placeholder">
+                    [مكان للصورة أو الشعار]
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاتصال -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>اتصل بنا</h2>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">إرسال الرسالة</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن المؤسسة</h3>
+                    <p>عين الابتكار التقني - مؤسسة رائدة في تقديم الحلول التقنية المتكاملة والخدمات الرقمية المبتكرة.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">خدماتنا</a></li>
+                        <li><a href="#about">من نحن</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <ul>
+                        <li>📞 الهاتف: +966 12 345 6789</li>
+                        <li>📧 البريد: info@ain-alibtikar.com</li>
+                        <li>📍 العنوان: الرياض، المملكة العربية السعودية</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة © 2023 عين الابتكار التقني</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // تفعيل القائمة المتنقلة
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // إضافة تأثيرات بسيطة للتمرير
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '10px 0';
+            } else {
+                header.style.padding = '15px 0';
+            }
+        });
+    </script>
+</body>
+</html>
